@@ -75,34 +75,71 @@ The frontend is configured to connect to a backend API at `http://localhost:5000
 ## 📁 Project Structure
 
 ```
+
 FreshLMS/
-├── src/
+│
+├── backend/                           # Backend (Node.js + Express + MongoDB)
+│   ├── config/
+│   │   └── db.js                      # MongoDB connection setup
+│   ├── controllers/
+│   │   ├── authController.js          # Handles login/register logic
+│   │   ├── courseController.js        # Handles course-related APIs
+│   │   └── userController.js          # Handles user data and profiles
+│   ├── middleware/
+│   │   └── authMiddleware.js          # JWT authentication middleware
+│   ├── models/
+│   │   ├── User.js                    # Mongoose schema for users
+│   │   └── Course.js                  # Mongoose schema for courses
+│   ├── routes/
+│   │   ├── authRoutes.js              # Login/register routes
+│   │   ├── courseRoutes.js            # Course CRUD routes
+│   │   └── userRoutes.js              # User info routes
+│   ├── server.js                      # Entry point for backend server
+│   ├── package.json                   # Backend dependencies and scripts
+│   └── .env                           # Backend environment variables
+│
+├── src/                               # Frontend (React + Vite + Tailwind)
 │   ├── components/
-│   │   ├── Layout.jsx              # Main layout with header/footer
-│   │   ├── ProtectedRoute.jsx     # Route protection wrapper
-│   │   ├── LoadingSpinner.jsx     # Loading indicator
-│   │   ├── CourseCard.jsx         # Reusable course card
-│   │   └── CreateCourseModal.jsx  # Course creation modal
+│   │   ├── Layout.jsx                 # Main layout with header/footer
+│   │   ├── ProtectedRoute.jsx         # Route protection wrapper
+│   │   ├── LoadingSpinner.jsx         # Loading indicator
+│   │   ├── CourseCard.jsx             # Reusable course card
+│   │   └── CreateCourseModal.jsx      # Course creation modal
 │   ├── contexts/
-│   │   └── AuthContext.jsx        # Authentication context
+│   │   └── AuthContext.jsx            # Authentication context
 │   ├── pages/
-│   │   ├── Login.jsx              # Login page
-│   │   ├── Register.jsx           # Registration page
-│   │   ├── StudentHome.jsx        # Student homepage
-│   │   ├── StudentDashboard.jsx   # Student dashboard
-│   │   ├── TeacherHome.jsx        # Teacher homepage
-│   │   └── TeacherDashboard.jsx   # Teacher dashboard
+│   │   ├── Login.jsx                  # Login page
+│   │   ├── Register.jsx               # Registration page
+│   │   ├── StudentHome.jsx            # Student homepage
+│   │   ├── StudentDashboard.jsx       # Student dashboard
+│   │   ├── TeacherHome.jsx            # Teacher homepage
+│   │   └── TeacherDashboard.jsx       # Teacher dashboard
 │   ├── services/
-│   │   └── api.js                 # API service layer
-│   ├── App.jsx                    # Main app component
-│   ├── main.jsx                   # Entry point
-│   └── index.css                  # Global styles
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
+│   │   └── api.js                     # API service layer (Axios setup)
+│   ├── App.jsx                        # Main app component
+│   ├── main.jsx                       # React entry point
+│   └── index.css                      # Global styles
+│
+├── index.html                         # Root HTML file for Vite
+├── package.json                       # Frontend dependencies
+├── vite.config.js                     # Vite configuration
+├── tailwind.config.js                 # Tailwind CSS setup
+└── README.md                          # Project documentation
+
 ```
+🧠 Explanation
+
+backend/ – Handles data, APIs, and authentication (Node.js + Express + MongoDB).
+
+src/ – Handles all UI and frontend logic (React + Vite + Tailwind).
+
+contexts/ – Manages global state (like user login info).
+
+services/ – Handles API calls using Axios.
+
+controllers/ – Contains logic for each API endpoint.
+
+routes/ – Defines the actual API endpoints used by frontend.
 
 ## 🎨 Custom Styling
 
