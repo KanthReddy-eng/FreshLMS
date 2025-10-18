@@ -165,6 +165,4 @@ The project uses custom TailwindCSS utility classes defined in `src/index.css`:
 
 Feel free to submit issues and enhancement requests!
 
----
-
-Built with ❤️ using React and TailwindCSS
+------------------------------------------------------
